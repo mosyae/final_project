@@ -52,8 +52,12 @@ Resources:
           add-apt-repository -y ppa:openjdk-r/ppa
           sudo apt-get update
           sudo apt-get install default-jdk -y
-
-
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+          sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+          sudo apt-get update
+          sudo apt-cache policy docker-ce
+          sudo apt-get install -y docker-ce
+          
   SSHSecurityGroup:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
     Type: AWS::EC2::SecurityGroup
