@@ -57,6 +57,12 @@ Resources:
           sudo apt-get update
           sudo apt-cache policy docker-ce
           sudo apt-get install -y docker-ce
+          echo "Fetching Nomad version 0.8.3 ..."
+          curl -s https://releases.hashicorp.com/nomad/0.8.3/nomad_0.8.3_linux_amd64.zip -o nomad.zip
+          echo "Installing Nomad version 0.8.3 ..."
+          unzip nomad.zip
+          chmod +x nomad
+          mv nomad /usr/local/bin/nomad
           
   SSHSecurityGroup:
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
